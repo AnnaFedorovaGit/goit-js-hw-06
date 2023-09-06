@@ -1,6 +1,4 @@
 
-// Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
-
 const ingredients = [
   'Potatoes',
   'Mushrooms',
@@ -11,10 +9,13 @@ const ingredients = [
 ];
 
 const list = document.querySelector("#ingredients");
+const fragment = document.createDocumentFragment();
 
 for (let ingredient of ingredients) { 
   let newLi = document.createElement("li");
   newLi.textContent = ingredient;
   newLi.classList.add("item");
-  list.appendChild(newLi);
+  fragment.appendChild(newLi);
 };
+
+list.appendChild(fragment);

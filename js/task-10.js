@@ -13,15 +13,17 @@ const containerForBoxes = document.querySelector("#boxes");
 let boxSize = 30;
 
 function createBoxes(amount) {
+  const fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i += 1) {
     let newDiv = document.createElement("div");
     newDiv.style.width = boxSize + "px";
     newDiv.style.height = boxSize + "px";
     newDiv.style.backgroundColor = getRandomHexColor();
 
-    containerForBoxes.appendChild(newDiv);
+    fragment.appendChild(newDiv);
     boxSize += 10;
   }
+  containerForBoxes.appendChild(fragment);
 }
 
 function destroyBoxes() { 
